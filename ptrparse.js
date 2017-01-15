@@ -267,7 +267,7 @@ function peg$parse(input, options) {
           //console.log(result);  
           return result;
       },
-      peg$c69 = function() { 
+      peg$c69 = function(tail) { 
           var result=tail;
       //    console.log("svgRparamCombo2");
           //if(result)
@@ -2490,38 +2490,33 @@ function peg$parse(input, options) {
   }
 
   function peg$parsesvgRparamCombo2() {
-    var s0, s1, s2, s3;
+    var s0, s1, s2;
 
     s0 = peg$currPos;
-    s1 = peg$currPos;
-    s2 = peg$parse_();
-    if (s2 !== peg$FAILED) {
+    s1 = peg$parse_();
+    if (s1 !== peg$FAILED) {
       if (input.charCodeAt(peg$currPos) === 44) {
-        s3 = peg$c53;
+        s2 = peg$c53;
         peg$currPos++;
       } else {
-        s3 = peg$FAILED;
+        s2 = peg$FAILED;
         if (peg$silentFails === 0) { peg$fail(peg$c54); }
       }
-      if (s3 === peg$FAILED) {
-        s3 = peg$parsesvgRparameter();
+      if (s2 === peg$FAILED) {
+        s2 = peg$parsesvgRparameter();
       }
-      if (s3 !== peg$FAILED) {
-        s2 = [s2, s3];
-        s1 = s2;
+      if (s2 !== peg$FAILED) {
+        peg$savedPos = s0;
+        s1 = peg$c69(s2);
+        s0 = s1;
       } else {
-        peg$currPos = s1;
-        s1 = peg$FAILED;
+        peg$currPos = s0;
+        s0 = peg$FAILED;
       }
     } else {
-      peg$currPos = s1;
-      s1 = peg$FAILED;
+      peg$currPos = s0;
+      s0 = peg$FAILED;
     }
-    if (s1 !== peg$FAILED) {
-      peg$savedPos = s0;
-      s1 = peg$c69();
-    }
-    s0 = s1;
 
     return s0;
   }

@@ -288,7 +288,8 @@ svgRparamCombo1= head:(',' _) tail:svgRparameter
     return result;
 }
 
-svgRparamCombo2=( _ tail:(','/svgRparameter)) { 
+svgRparamCombo2= _ tail:(','/svgRparameter) 
+{ 
     var result=tail;
 //    console.log("svgRparamCombo2");
     //if(result)

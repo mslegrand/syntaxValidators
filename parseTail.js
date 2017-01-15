@@ -62,6 +62,8 @@ mssgStack.forEach( function( warning ){
     console.log(message);
     console.log(location.start.line);
     console.log(location.start.column);
+    //console.log(location.end.line);
+    //console.log(location.end.column);
     results.push({
         row: location.start.line-1,
         column: location.start.column-1,

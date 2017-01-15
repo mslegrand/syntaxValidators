@@ -212,7 +212,7 @@ function peg$parse(input, options) {
       peg$c62 = peg$literalExpectation("[[", false),
       peg$c63 = "]]",
       peg$c64 = peg$literalExpectation("]]", false),
-      peg$c65 = function(head, tail) {
+      peg$c65 = function(head, tail, rightParen) {
           // Check each tail element which is an svgR call and see if it's belongs to the content model of the head element
           var i, tailTok, tailLoc, result, headTok = head;
           //console.log("svgRCall");
@@ -241,6 +241,11 @@ function peg$parse(input, options) {
                       }
                   }
               }
+          }
+          if( rightParen ){
+              showResult("rightParen=", rightParen);
+          } else {
+              addError("Missing Closing Right Parenthesis", location() );
           }
           // in any case, return head
           result= new SvgEleInfo(headTok, location());
@@ -2340,9 +2345,12 @@ function peg$parse(input, options) {
                 s6 = peg$FAILED;
                 if (peg$silentFails === 0) { peg$fail(peg$c32); }
               }
+              if (s6 === peg$FAILED) {
+                s6 = peg$parseEOF();
+              }
               if (s6 !== peg$FAILED) {
                 peg$savedPos = s0;
-                s1 = peg$c65(s1, s4);
+                s1 = peg$c65(s1, s4, s6);
                 s0 = s1;
               } else {
                 peg$currPos = s0;

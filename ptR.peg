@@ -303,7 +303,7 @@ call_expr=  '(' _ parameters? _ ')'
 
 composite_expr = ( left_token_expr / atomic_expr ) ( !expr_seperator ( dlist_expr / slist_expr / call_expr  )  )* 
 
-svgRCall = head:keySVGR '(' _ tail:svgRparameters? _ ')' 
+svgRCall = head:keySVGR '(' _ tail:svgRparameters? _ rightParen:( ')' / EOF ) 
 {
     // Check each tail element which is an svgR call and see if it's belongs to the content model of the head element
     var i, tailTok, tailLoc, result, headTok = head;
@@ -333,6 +333,11 @@ svgRCall = head:keySVGR '(' _ tail:svgRparameters? _ ')'
                 }
             }
         }
+    }
+    if( rightParen ){
+        showResult("rightParen=", rightParen);
+    } else {
+        addError("Missing Closing Right Parenthesis", location() );
     }
     // in any case, return head
     result= new SvgEleInfo(headTok, location());

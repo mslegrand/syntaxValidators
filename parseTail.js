@@ -31,7 +31,9 @@ try{
    if( e instanceof peg$SyntaxError){
        var mssg= "error";
         if(e.message && e.location.start.line){
-            addError(e.message,e.location, "error")
+            addError(
+            "Unexpected Symbol: " + e.found, e.location, "error")
+            //e.message,e.location, "error")
             //return({
              //   message: e.message,
              //   found: e.found,

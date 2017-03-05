@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#Used to create the list of valid Attrs for each element\n# I need this not for the building of of the svgR project\n# but for the syntax validator for ace in the ptR project\n\nlibrary(data.table)\nrequireTable(AVEL.DT,COP.DT,PA.DT, AET.DT)\n\n# for the elements that support cxy\nxywh<-c('x','y','width','height')\nAET.DT[attr %in% xywh,]->tmp.DT\ntmp.DT[,.N, by=element]->tmp2.DT\ntmp2.DT[N==4,element]->cxySupported\ncxySupported<-c(c('text' , 'textPath' , 'tspan'),cxySupported)\n\ngetMissingAttrs<-function(el){\n  attrs<-c()\n  if(el %in% cxySupported){\n    attrs<-c(attrs,\"cxy\")\n  }\n  if(el %in% c( \"path\", \"line\", \"polyline\", \"polygon\") ){\n    attrs<-c(attrs,\"marker-start\",  \"marker-mid\", \"marker-end\")\n  }\n  if(el %in% c( \"linearGradient\", \"radialGradient\") ){\n    attrs<-c(attrs,\"colors\",  \"offsets\")\n  }\n  attrs\n}\ngetAttrsOrig<-function(eleName){\n  #regular attributes\n  \n  if(eleName==\"svgR\"){\n    eleName=\"svg\"\n    removeAttrs<-c(\"xy\",\"cxy\", \"x\",\"y\")\n  }\n  regAttrs<- AVEL.DT[element==eleName]$attr\n  comboAttrs<-COP.DT[element==eleName, .SD[1,], by=variable]$variable\n  presAttrs<-PA.DT[variable==\"Applies to\" & value==eleName]$attr\n  missingAttrs<-getMissingAttrs(eleName)\n  attrs<-c(regAttrs, comboAttrs, presAttrs, missingAttrs) \n  if(!is.null(removeAttrs)){\n    attrs<-attrs[!is.element(attrs, removeAttrs)]\n  } \n  if(\"in\" %in% attrs){\n    attrs[which(attrs==\"in\")]<-\"in1\"\n  }\n  \n  attrs<-gsub(\"[-:]\", \".\", attrs)\n  sort(attrs)\n}\n\n\ngetAttrEntry<-function(eleName){ \n  attrs<-getAttrsOrig(eleName)\n  attrs<-gsub(\"[-:]\",\".\",attrs)\n  attrs<-paste0('\"',attrs,'\"')\n  eleName<-gsub(\"[-:]\",\".\",eleName)\n  eleName<-paste0('\"',eleName,'\"')\n  attrs<-paste0(attrs, collapse=\", \")\n  rtv<-paste(eleName, \": [\", attrs, \"]\")\n  rtv\n}\n\nall.elements<-c(unique(es.DT$element),\"svgR\")\n\nele.attr<-sapply(all.elements, function(eleName){\n  getAttrEntry(eleName)\n})\n\nele.attr<-paste0(ele.attr, collapse=\",\\n\")\n\ntxt<-paste0(\n\"var acceptedAttributes = {\\n \",\nele.attr,\n\"\\n};\\n\", \ncollapse=\"\\n\")\n\n\n\ncat(txt,file = \"validateElementAttributes.txt\")\n\n",
+    "created" : 1487994485542.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2030155213",
+    "id" : "20A44958",
+    "lastKnownWriteTime" : 1488672749,
+    "last_content_update" : 1488672749962,
+    "path" : "~/development/pegjs/buildSvgrParseList/validateAttribute.R",
+    "project_path" : "validateAttribute.R",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,9 @@
+{
+    "path" : "~/development/pegjs/buildSvgrParseList",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

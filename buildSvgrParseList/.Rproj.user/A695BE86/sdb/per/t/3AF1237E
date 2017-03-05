@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\nlibrary(data.table)\n\ntablesSrc=list(\n  AVEL.DT=\".dataTables/AVELTable.tsv\",\n  AVD.DT=\".dataTables/AVDTable.tsv\",\n  es.DT=\"./dataTables/elementSummary.tsv\",\n  eaCS.DT=\"./dataTables/elementAttrCategorySummary.tsv\",\n  PA.DT=\".dataTables/presentationAttr.tsv\",\n  COP.DT=\"./dataTables/comboParams.tsv\",\n  COP1.DT=\"./dataTables/comboParams.tsv\",\n  AET.DT=\"./dataTables/AETTable.tsv\"\n)\n\n#~ usage:  \n#~ requireTable(AVD.DT, eaCS.DT)\nrequireTable<-function(...){\n  tmp<-deparse(sys.call())\n  tmp<-gsub(\"requireTable\\\\(\",\"\",tmp)\n  tmp<-gsub(\"[\\\\(\\\\)\\'\\\"]\",\"\",tmp)\n  dtNames<-strsplit(tmp, \"[ ,]+\")[[1]]\n  if(!is.null(dtNames)){\n    lapply(dtNames,\n           function(name){\n             if(!exists(name)){\n               if(!(name%in%names(tablesSrc))){\n                 cat(paste(\"Cannot find path for data.table='\", name,\"'\\n\"))\n                 #stop(paste(\"Cannot find path for data.table='\", name,\"'\\n\"))\n               } else{\n                 path<-tablesSrc[[name]]\n                 cl<-substitute(fread(path )->>name, list(path=path, name=name))\n                 eval(cl, env=parent.frame() )        \n               }\n             }\n           })    \n  }\n  invisible('')\n}\n\n\n\n",
+    "created" : 1487988019998.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1248441304",
+    "id" : "3AF1237E",
+    "lastKnownWriteTime" : 1487997462,
+    "last_content_update" : 1487997462021,
+    "path" : "~/development/pegjs/buildSvgrParseList/tableLoader.R",
+    "project_path" : "tableLoader.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -6,8 +6,8 @@
 
 function ptr$parse(_input) {
 mssgStack.length=0;
-console.log("Enter ptr$parse");
-console.log(typeof _input);  
+//console.log("Enter ptr$parse");
+//console.log(typeof _input);  
 if ( 'object' === typeof _input) {
   _input = undefined;
 }
@@ -19,15 +19,15 @@ var okResult={message: "ok"};
 var results=[];
 
 try{
-    console.log("Enter ptr$parse: try{");
+    //console.log("Enter ptr$parse: try{");
     if(_input  && typeof _input=="string" && _input.length >0){    
         result = peg$parse(_input, options );
-        console.log("Exit ptr$parse: try{ if(");
+        //console.log("Exit ptr$parse: try{ if(");
     }
-    console.log("Exit ptr$parse: try{ if(");
+    //console.log("Exit ptr$parse: try{ if(");
 } catch(e){
-    console.log("ptrparse exception");
-    console.log(e.message);
+    //console.log("ptrparse exception");
+    //console.log(e.message);
    if( e instanceof peg$SyntaxError){
        var mssg= "error";
         if(e.message && e.location.start.line){
@@ -55,8 +55,8 @@ try{
    
 }
 // copy warnStack to results
-console.log("copy mssgStack to results");
-console.log("mssgStack.length=" + mssgStack.length );
+//console.log("copy mssgStack to results");
+//console.log("mssgStack.length=" + mssgStack.length );
 mssgStack.forEach( function( warning ){
     var message =warning.message;
     var location=warning.location;
@@ -75,21 +75,20 @@ mssgStack.forEach( function( warning ){
 })
 
 
-console.log("Exit ptr$parse");
+//console.log("Exit ptr$parse");
 
 return results;
 };
 
 return {
-  version: '0.1.1',
+  version: '0.1.2',
   parse: ptr$parse
 };
 
 })();
 
 module.exports.PTRPARSER = PTRPARSER;
-//exports.version = '0.1.4';
-//exports.parse = ptr$parse;
+
 
 
 

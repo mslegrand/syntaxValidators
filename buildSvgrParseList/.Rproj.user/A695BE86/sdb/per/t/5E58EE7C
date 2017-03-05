@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1487988160327.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5E58EE7C",
+    "lastKnownWriteTime" : 2,
+    "last_content_update" : 1487988160327,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "C70081E1",
+        "caption" : "AVEL.DT",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=AVEL.DT&cache_key=C70081E1",
+        "displayedObservations" : "1428",
+        "environment" : "",
+        "object" : "AVEL.DT",
+        "preview" : "0",
+        "totalObservations" : "1428",
+        "variables" : "9"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

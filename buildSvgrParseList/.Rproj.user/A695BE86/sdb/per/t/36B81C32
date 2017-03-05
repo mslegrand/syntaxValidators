@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1487987529278.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "36B81C32",
+    "lastKnownWriteTime" : 2,
+    "last_content_update" : 1487987529278,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "48672D9B",
+        "caption" : "AET.DT",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=AET.DT&cache_key=48672D9B",
+        "displayedObservations" : 1428,
+        "environment" : "",
+        "object" : "AET.DT",
+        "preview" : 0,
+        "totalObservations" : 1428,
+        "variables" : 4
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

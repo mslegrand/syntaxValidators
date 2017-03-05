@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "~/development/pegjs/buildSvgrParseList",
+        "query" : "svgR",
+        "regex" : false
+    }
+}

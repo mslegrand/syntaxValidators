@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sourceDir="./TrestleTech/ace/build/src-min-noconflict/"
-targetDir="$HOME/R/svgRHabitat/pointR/inst/App/www/Acejs/"
+targetDir="../pointR/inst/App/www/Acejs/"
 mode="mode-ptr.js"
 worker="worker-ptr.js"
 snippet="snippets/ptr.js"

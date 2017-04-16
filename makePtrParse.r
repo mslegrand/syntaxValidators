@@ -1,9 +1,9 @@
 #!/usr/bin/Rscript --vanilla
 
 # readom the source
-sourceFile<-"/home/sup/development/pegjs/ptrparse.js"
-targetFile<-"/home/sup/development/pegjs/TrestleTech/ace/lib/ace/mode/ptr/ptrparse.js"
-sourceTail<-"/home/sup/development/pegjs/parseTail.js"
+sourceFile<-"./ptrparse.js"
+targetFile<-"./TrestleTech/ace/lib/ace/mode/ptr/ptrparse.js"
+sourceTail<-"./parseTail.js"
 
 src<-readLines(sourceFile)
 srcTail<-readLines(sourceTail)

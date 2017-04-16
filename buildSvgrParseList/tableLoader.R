@@ -2,11 +2,12 @@
 library(data.table)
 
 tablesSrc=list(
-  AVEL.DT=".dataTables/AVELTable.tsv",
-  AVD.DT=".dataTables/AVDTable.tsv",
+  AVEL.DT="./dataTables/AVELTable.tsv",
+  ANC.DT="./dataTables/Ancillary.csv",
+  #AVD.DT=".dataTables/AVDTable.tsv",
   es.DT="./dataTables/elementSummary.tsv",
   eaCS.DT="./dataTables/elementAttrCategorySummary.tsv",
-  PA.DT=".dataTables/presentationAttr.tsv",
+  PA.DT="./dataTables/PA.csv",
   COP.DT="./dataTables/comboParams.tsv",
   COP1.DT="./dataTables/comboParams.tsv",
   AET.DT="./dataTables/AETTable.tsv"

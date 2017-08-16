@@ -85,8 +85,8 @@ peg$SyntaxError.buildMessage = function(expected, found) {
       .replace(/\n/g, '\\n')
       .replace(/\r/g, '\\r')
       .replace(/[\x00-\x0F]/g,          function(ch) { return '\\x0' + hex(ch); })
-  }
       .replace(/[\x10-\x1F\x7F-\x9F]/g, function(ch) { return '\\x'  + hex(ch); });
+  }
 
   function describeExpectation(expectation) {
     return DESCRIBE_EXPECTATION_FNS[expectation.type](expectation);
@@ -5297,8 +5297,8 @@ function peg$parse(input, options) {
               type: "warning"
           });
       };
-
-
+      
+      
       function addError( text, alocation ){
           mssgStack.push(
           {
@@ -5323,7 +5323,7 @@ function peg$parse(input, options) {
         for (i=0; i<this.length; i++) { if (this[i] === value) return true; }
         return false;
       };
-
+      
       function SvgAttrInfo(tok, loc){
           this.token=tok;
           this.location=loc;
@@ -5424,7 +5424,7 @@ function peg$parse(input, options) {
   "script" : [ "externalResourcesRequired", "id", "type", "xlink.actuate", "xlink.arcrole", "xlink.href", "xlink.role", "xlink.show", "xlink.title", "xlink.type", "xml.base", "xml.lang", "xml.space" ],
   "style" : [ "id", "media", "title", "type", "xml.base", "xml.lang", "xml.space" ],
   "svgR" : [ "baseProfile", "class", "clip", "clip.path", "color.interpolation", "color.rendering", "contentScriptType", "contentStyleType", "cursor", "cxy", "display", "enable.background", "externalResourcesRequired", "filter", "height", "id", "mask", "onabort", "onactivate", "onclick", "onerror", "onfocusin", "onfocusout", "onload", "onmousedown", "onmousemove", "onmouseout", "onmouseover", "onmouseup", "onresize", "onscroll", "onunload", "onzoom", "opacity", "overflow", "preserveAspectRatio", "requiredExtensions", "requiredFeatures", "style", "systemLanguage", "version", "viewBox", "wh", "width", "xml.base", "xml.lang", "xml.space", "xy", "zoomAndPan" ]
-  };
+  };    
 
 
   var allElements = [

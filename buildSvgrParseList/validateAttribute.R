@@ -27,10 +27,10 @@ getMissingAttrs<-function(el){
 }
 getAttrsOrig<-function(eleName){
   #regular attributes
-  
+  removeAttrs<-NULL
   if(eleName=="svgR"){
     eleName="svg"
-    removeAttrs<-c("xy","cxy", "x","y")
+    removeAttrs<-c("x","y")
   }
   regAttrs<- AVEL.DT[element==eleName]$attr
   comboAttrs<-COP.DT[element==eleName, .SD[1,], by=variable]$variable

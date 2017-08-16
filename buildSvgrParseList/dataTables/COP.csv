@@ -186,15 +186,3 @@ line	xy2	x2
 line	xy2	y2
 linearGradient	xy2	x2
 linearGradient	xy2	y2
-feConvolveMatrix	in1	in
-feDiffuseLighting	in1	in
-feOffset	in1	in
-feBlend	in1	in
-feColorMatrix	in1	in
-feComponentTransfer	in1	in
-feComposite	in1	in
-feDisplacementMap	in1	in
-feGaussianBlur	in1	in
-feMorphology	in1	in
-feSpecularLighting	in1	in
-feTile	in1	in

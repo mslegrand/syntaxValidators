@@ -7,7 +7,7 @@
 
 
 library(data.table)
-requireTable(AVEL.DT,COP.DT,PA.DT)
+requireTable(AVEL.DT,COP.DT,PA.DT, AET.DT)
 
 getAttrsOrig<-function(eleName){
   #regular attributes

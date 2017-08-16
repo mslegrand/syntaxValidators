@@ -2,14 +2,14 @@
 library(data.table)
 
 tablesSrc=list(
-  AVEL.DT="./dataTables/AVELTable.tsv",
-  ANC.DT="./dataTables/Ancillary.csv",
+  AVEL.DT="./dataTables/AVELTable5.csv",
+  #ANC.DT="./dataTables/Ancillary10.csv",
   #AVD.DT=".dataTables/AVDTable.tsv",
-  es.DT="./dataTables/elementSummary.tsv",
-  eaCS.DT="./dataTables/elementAttrCategorySummary.tsv",
+  #es.DT="./dataTables/elementSummary.tsv",
+  #eaCS.DT="./dataTables/elementAttrCategorySummary.tsv",
   PA.DT="./dataTables/PA.csv",
-  COP.DT="./dataTables/comboParams.tsv",
-  COP1.DT="./dataTables/comboParams.tsv",
+  COP.DT="./dataTables/COP.csv",
+  #COP1.DT="./dataTables/comboParams.tsv",
   AET.DT="./dataTables/AETTable.tsv"
 )
 

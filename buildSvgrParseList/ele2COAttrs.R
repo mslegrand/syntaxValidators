@@ -20,7 +20,7 @@ ele2COAttrs<-function(elName){
     #In one step :)
     CAL.COP.DT<-AL.DT[tmp1.DT,
       list(
-      category='combining attributes', 
+      category='complemenary attributes', 
       attr=variable, 
       loc=co.loc2(attr, loc, variable)
       )

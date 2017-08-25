@@ -8,16 +8,17 @@ are
 ## The set up
 
 Below this directory should be the 
-- *TrestleTech/ace*  
+- *./TrestleTech/ace*  
     - the  current version of ace used by the TrestleTech package 
-- *TrestleTech/ace/lib/ace/mode/ptr.js*
-- *TrestleTech/ace/lib/ace/mode/ptr_completions.js*
-- *TrestleTech/ace/lib/ace/mode/ptr_highlight_rules.js*
-- *TrestleTech/ace/lib/ace/mode/ptr_worker.js*
-- *TrestleTech/ace/lib/ace/mode/ptr/ptrparse.js* 
+- *./TrestleTech/ace/lib/ace/mode/ptr.js*
+- *./TrestleTech/ace/lib/ace/mode/ptr_completions.js*
+- *./TrestleTech/ace/lib/ace/mode/ptr_highlight_rules.js*
+- *./TrestleTech/ace/lib/ace/mode/ptr_worker.js*
+- *./TrestleTech/ace/lib/ace/mode/ptr/ptrparse.js* 
     - The output of pegjs and merging with parseTail.js
-
-A copy of the above files are kept in the mode directory for refereence
+- *./TrestleTech/ace/lib/ace/snippets/ptr.js*
+- *./TrestleTech/ace/lib/ace/snippets/ptr.snippets*
+A copy of the above files are kept in the mode and snippets directories for refereence
 
 ## The Process (Revised)
 

@@ -1,5 +1,6 @@
 CopyBuild2pkg
 donotcheckin
+ptrParseNew.js
 buildSvgrParseList/validateAttribute.nb.html
 .Rproj.user
 .Rhistory

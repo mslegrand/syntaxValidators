@@ -33,8 +33,8 @@ src<-c(
 	srcTail, # from the file="./parseTail.js"
 	"});"
 )
-cat(src)
-#src<-paste0(src,collapse="\n")
+
 cat(src,file=targetFile, sep="\n")
 cat(src,file="./ptrParseNew.js", sep="\n")
+cat("done\n")
 

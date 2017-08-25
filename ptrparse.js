@@ -251,6 +251,9 @@ function peg$parse(input, options) {
           }
           // in any case, return head
           result= new SvgEleInfo(headTok, location());
+           if( options.cursorPos ){
+               pushContext(result, options.cursorPos);
+           }
           return result;
       },
       peg$c68 = function(attr) {
@@ -5289,6 +5292,88 @@ function peg$parse(input, options) {
 
       var mssgStack=[];
       
+      
+      var contextStack=[];
+      
+      function comparePos( r1, c1, r2, c2){
+          console.log("comparePos");
+          console.log(JSON.stringify(r1));
+          console.log(JSON.stringify(c1));
+          console.log(JSON.stringify(r2));
+          console.log(JSON.stringify(c2));
+          if( r1<r2 ){
+                  return 1;
+          }
+           if( r1>r2 ){
+              return -1;
+          }
+          if(r1===r2){
+              if(c1<c2){
+                  return 1;
+              } 
+              if(c1>c2){
+                  return -1;
+              } 
+          }
+          return 0;
+      };
+      
+      function pushContext( svgEleInfo, cursorPos){
+      console.log("pushContext");
+          if(cursorPos){
+      console.log("cursorPos=");
+      console.log(JSON.stringify(cursorPos));
+      console.log("svgEleInfo=");
+      console.log(JSON.stringify(svgEleInfo));
+      console.log("fuck=");
+      console.log("svgEleInfo.location.start.line",svgEleInfo.location.start.line);
+      console.log("svgEleInfo.location.start.column",svgEleInfo.location.start.column);
+      console.log("cursorPos.row",cursorPos.row);
+      console.log("cursorPos.column",cursorPos.column);
+      var comp1=comparePos( 
+                      svgEleInfo.location.start.line, 
+                      svgEleInfo.location.start.column,
+                      cursorPos.row,
+                      cursorPos.column
+                  );
+      console.log("comp1=" + comp1);
+      var comp2=comparePos( 
+                      cursorPos.row,
+                      cursorPos.column,
+                      svgEleInfo.location.end.line, 
+                      svgEleInfo.location.end.column
+                  );
+      console.log(", comp2=" + comp2);
+              if(
+                  comparePos( 
+                      svgEleInfo.location.start.line, 
+                      svgEleInfo.location.start.column,
+                      cursorPos.row,
+                      cursorPos.column
+                  )==1 
+              &&
+              comparePos( 
+                      cursorPos.row,
+                      cursorPos.column,
+                      svgEleInfo.location.end.line, 
+                      svgEleInfo.location.end.column
+                  )==1 
+              ){
+                  contextStack.push(
+                      {
+                          token: svgEleInfo.token,
+                          location: svgEleInfo.location
+                      }
+                  );
+
+              }
+          }
+      };
+      
+      function clearContext(){
+          contextStack=[];
+      };
+      
       function addWarning( text, alocation ){
           mssgStack.push(
           {
@@ -5340,7 +5425,7 @@ function peg$parse(input, options) {
           } else {
               console.log("location is null");
           }
-      }
+      };
 
   var acceptedAttributes = {
    "a" : [ "class", "clip.path", "color.interpolation", "color.rendering", "cursor", "display", "enable.background", "externalResourcesRequired", "filter", "id", "mask", "onactivate", "onclick", "onfocusin", "onfocusout", "onload", "onmousedown", "onmousemove", "onmouseout", "onmouseover", "onmouseup", "opacity", "requiredExtensions", "requiredFeatures", "style", "systemLanguage", "target", "transform", "visibility", "xlink.actuate", "xlink.arcrole", "xlink.href", "xlink.role", "xlink.show", "xlink.title", "xlink.type", "xml.base", "xml.lang", "xml.space" ],

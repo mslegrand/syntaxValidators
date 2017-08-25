@@ -13,6 +13,8 @@ Below this directory should be the
 - *./TrestleTech/ace/lib/ace/mode/ptr.js*
 - *./TrestleTech/ace/lib/ace/mode/ptr_completions.js*
 - *./TrestleTech/ace/lib/ace/mode/ptr_highlight_rules.js*
+- *./TrestleTech/ace/lib/ace/mode/behaviour/ptrstyle.js*
+- *./TrestleTech/ace/lib/ace/mode/folding/ptrstyle.js*
 - *./TrestleTech/ace/lib/ace/mode/ptr_worker.js*
 - *./TrestleTech/ace/lib/ace/mode/ptr/ptrparse.js* 
     - The output of pegjs and merging with parseTail.js

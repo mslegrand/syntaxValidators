@@ -18,7 +18,13 @@ Below this directory should be the
     - The output of pegjs and merging with parseTail.js
 - *./TrestleTech/ace/lib/ace/snippets/ptr.js*
 - *./TrestleTech/ace/lib/ace/snippets/ptr.snippets*
-A copy of the above files are kept in the mode and snippets directories for refereence
+A copy of the above files are kept in the mode and snippets directories for reference
+
+These file can be copied to the target as follows:
+
+- cp -r  ./mode/* ./TrestleTech/ace/lib/ace/mode/
+- cp -r  ./snippets/* ./TrestleTech/ace/lib/ace/snippets/
+
 
 ## The Process (Revised)
 

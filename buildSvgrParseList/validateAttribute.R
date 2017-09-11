@@ -1,9 +1,9 @@
 #Used to create the list of valid Attrs for each element
 # I need this not for the building of of the svgR project
 # but for the syntax validator for ace in the ptR project
+source("tableLoader.R")
 
-library(data.table)
-requireTable(AVEL.DT,COP.DT,PA.DT, AET.DT)
+requireTable(AVEL.DT,COP.DT,PA.DT, AET.DT, ES.DT)
 
 # for the elements that support cxy
 xywh<-c('x','y','width','height')
@@ -60,7 +60,7 @@ getAttrEntry<-function(eleName){
   rtv
 }
 
-all.elements<-c(unique(es.DT$element),"svgR")
+all.elements<-c(unique(ES.DT$element),"svgR")
 
 ele.attr<-sapply(all.elements, function(eleName){
   getAttrEntry(eleName)
